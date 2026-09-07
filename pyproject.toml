@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-core-next"
+version = "0.1.0"
+description = "Modular agent runtime with strict responsibility boundaries."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "Core*",
+  "Intelligence*",
+  "Model*",
+  "Execution*",
+  "Memory*",
+  "Infrastructure*",
+  "Integration*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["Tests"]
+python_files = ["test_*.py"]
+pythonpath = ["."]
